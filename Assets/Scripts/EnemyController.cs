@@ -18,12 +18,14 @@ public class EnemyController : MonoBehaviour
 	bool broken=true;
     
     Animator animator;
+	AudioSource botSound;
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator=GetComponent<Animator>();
+		botSound=GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -78,5 +80,6 @@ public class EnemyController : MonoBehaviour
 		animator.SetTrigger("Fixed");
 		smokeEffect.Stop();
 		Destroy(smokeEffect.gameObject);
+		Destroy(botSound);
 	}
 }
